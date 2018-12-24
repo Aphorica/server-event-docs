@@ -91,7 +91,7 @@ make the application source available in the IDE.
 - On the client side _(./site)_, this will be a _vuejs_ application.
 - On the server side _(./app)_, this will be a _node express_ application.
 
-Both are hot-served (not the server under Windows, I have discovered) - if you make a change to the source in either directory, they will update.  Unfortunately, this does not apply if you are changing source in either of the other modules.  See next.
+> Both are hot-served (not the server under Windows, I have discovered) - if you make a change to the source in either directory, they will update.  Unfortunately, this does not apply if you are changing source in either of the other modules.  See next.
 
 ### Modules
 Clone each of the modules locally in separate directories.  You can either use the 'npm-link', 'yarn-link' or 'yalc' facilities to make them available in the _./site_ and _./app_ folders.
