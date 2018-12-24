@@ -27,7 +27,7 @@ Implements a server-event service in node express.
    default prefix is '/sse/'
 
 ## Caveats:
- - <em style={color:red}>IN PROGRESS - STILL DEVELOPING</em>
+ - <em style="color:red">IN PROGRESS - STILL DEVELOPING</em>
   - (pull requests welcome.)
  - Currently does not support multiple managers. Could think
    about that, if required.
