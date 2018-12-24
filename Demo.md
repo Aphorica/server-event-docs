@@ -16,8 +16,9 @@ packages.  Please refer to the following:
   package to register, maintain, and invoke server-side notifications.
 
 ## Caveats
-- <em style="color:red">IN PROGRESS - STILL DEVELOPING</em>
-  is what _should_ be happening.  If not, well, I'm working on it.
+- <em style="color:red">IN PROGRESS - STILL DEVELOPING</em> This   
+  documentation
+  describes what _should_ be happening.  If not, well, I'm working on it.
 - (pull requests welcome, but we need to tightly coordinate any
   merges.)
 - Read the document pages in this guide for each of the modules for more    detailed information on their use/implementation.

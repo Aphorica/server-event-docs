@@ -22,7 +22,8 @@ It also provides debugging invocations into the server to aid in development.
 
 ## Caveats:
  - <em style="color:red">IN PROGRESS - STILL DEVELOPING</em>
-  - (pull requests welcome.)
+ - (pull requests welcome, but we need to tightly coordinate any
+   merges.)
 
 ## API
  The `EventSource` object is created, retained, and

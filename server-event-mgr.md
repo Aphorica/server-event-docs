@@ -28,7 +28,8 @@ Implements a server-event service in node express.
 
 ## Caveats:
  - <em style="color:red">IN PROGRESS - STILL DEVELOPING</em>
-  - (pull requests welcome.)
+ - (pull requests welcome, but we need to tightly coordinate any
+    merges.)
  - Currently does not support multiple managers. Could think
    about that, if required.
  - If the client drops, there is no way for the server to know that
