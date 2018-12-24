@@ -53,22 +53,33 @@ steps to get it up and running:
 4. Invoke `npm serve` or `yarn serve` from the command line.
 4. Open another commandline window and cd to the demo root.
 5. Invoke `docker-compose up` from the command line.
-6. Open a browser, type in a name and hit the _Submit!_ button.
-7. The page will wait a few seconds and then you will see the
-   response update.  Note your id and timestamp will be reflected
-   in the _Registrants_ window.
-8. You can, for instance hit the _Trigger Server Response_ button,
+
+Once everything is up and running, you can open a browser and type:
+```
+http://localhost:8080
+```
+Next:
+
+6. Type in a name in the text field, and hit the _Set_ button.
+  - The 'time' field at the top will start updating - this is an LT
+    "listen" registration.
+  - The _Submit_ button will be enabled.
+7. Hitting the _Submit_ button will submit a "task" registration 
+   (timeout_test) - it will wait a few seconds and then signal completion.
+   - When the task has been submitted, the _Trigger Server Response_ button and others will be enabled.
+   - Note your id and registration timestamp will be reflected in the _Registrants_ window.
+8. You can, hit the _Trigger Server Response_ button,
    which will force the server to initiate an immediate _ad hoc_
    response (reflected by count in the _Response_ header.)
 9. Open more browsers and enter a different name in each, then hit
    the _Submit!_ and _Trigger Server Response_ buttons to see each
    client receives its own response.
 10. Open another browser (or more) and enter the same name as one
-    of the other browsers.  Note that the responses are refleted
-    for all clients registered in that name.
+    of the other browsers.  Note that the responses are reflected
+    for all clients registered in the same name.
 11. Hit the _Stop Listening_ button to remove the user's connection.
-    The list will update to show the user has been removed and the
-    _State_ entry will show "Closed".
+    The list will update in all the open browsers to show the user
+    has been removed and the _State_ entry will show "Closed".
 
 ## Development
 Because this is a client/server app, each side referencing it's own npm-module, the development environment is a bit complex.  Here is how I manage it:
