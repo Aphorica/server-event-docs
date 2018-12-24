@@ -60,24 +60,24 @@ http://localhost:8080
 ```
 Next:
 
-6. Type in a name in the text field, and hit the _Set_ button.
+- Type in a name in the text field, and hit the _Set_ button.
   - The 'time' field at the top will start updating - this is an LT
     "listen" registration.
   - The _Submit_ button will be enabled.
-7. Hitting the _Submit_ button will submit a "task" registration 
+- Hitting the _Submit_ button will submit a "task" registration 
    (timeout_test) - it will wait a few seconds and then signal completion.
    - When the task has been submitted, the _Trigger Server Response_ button and others will be enabled.
    - Note your id and registration timestamp will be reflected in the _Registrants_ window.
-8. You can, hit the _Trigger Server Response_ button,
+- You can, hit the _Trigger Server Response_ button,
    which will force the server to initiate an immediate _ad hoc_
    response (reflected by count in the _Response_ header.)
-9. Open more browsers and enter a different name in each, then hit
+- Open more browsers and enter a different name in each, then hit
    the _Submit!_ and _Trigger Server Response_ buttons to see each
    client receives its own response.
-10. Open another browser (or more) and enter the same name as one
+- Open another browser (or more) and enter the same name as one
     of the other browsers.  Note that the responses are reflected
     for all clients registered in the same name.
-11. Hit the _Stop Listening_ button to remove the user's connection.
+- Hit the _Stop Listening_ button to remove the user's connection.
     The list will update in all the open browsers to show the user
     has been removed and the _State_ entry will show "Closed".
 
