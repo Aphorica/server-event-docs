@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Version 0.2.2
+title: Version 0.1.2
 nav_order: 12
 ---
 # Version
-This documentation corresponds to the modules and demo versions 0.2.2 .
+This documentation corresponds to the modules and demo versions 0.1.2 .
