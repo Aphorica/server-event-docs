@@ -1,1 +1,6 @@
 remote_theme: pmarsceill/just-the-docs
+github: [metadata]
+title: "Server Event Group"
+aux_links:
+  "Contact: gbergeraph@gmail.com":
+    - "mailto:gbergeraph@gmail.com"
