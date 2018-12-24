@@ -16,7 +16,7 @@ packages.  Please refer to the following:
   package to register, maintain, and invoke server-side notifications.
 
 ## Caveats
-- _IN PROGRESS - STILL DEVELOPING!_.  The behavior described here
+- <em style={color:red}>IN PROGRESS - STILL DEVELOPING</em>
   is what _should_ be happening.  If not, well, I'm working on it.
 - (pull requests welcome, but we need to tightly coordinate any
   merges.)
