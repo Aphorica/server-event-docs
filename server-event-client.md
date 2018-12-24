@@ -5,24 +5,28 @@ nav_order: 32
 ---
 # @aphorica/server-event-client
 
-Client-side utility for registering and maintaining _EventSource_ connections.
+Client-side utility for registering and maintaining `EventSource`s connections.
 
 The npm package is here:
  - [@aphorica/server-event-mgr](https://www.npmjs.com/package/@aphorica/server-event-client) - server-side implentation of a server-event service.
 
 ## Overview
-The EventSource object is provided by the browser (or a polyfill in the case of non-support (IE/Edge)) to manage long-lived _keep-alive_ connections with the server, and to keep them open until closed.
+The `EventSource` object is provided by the browser (or a polyfill in the case of non-support (IE/Edge)) to manage long-lived _keep-alive_ connections with the server, and to keep them open until closed.
 
-This utility provides an `EventSource` implementation that, in turn, is tuned to the server implementation provided by the @aphorica/server-event-mgr.
+This utility provides an `EventSource` implementation that, in turn, is tuned to the server implementation provided by the `@aphorica/server-event-mgr`.
 
 It also provides debugging invocations into the server to aid in development.
 
 ## Installation
 `npm install @aphorica/server-event-client` _or_ `yarn add @aphorica/server-event-client`
 
+## Caveats:
+ - <em style="color:red">IN PROGRESS - STILL DEVELOPING</em>
+  - (pull requests welcome.)
+
 ## API
- The _EventSource_ object is created, retained, and
-destroyed entirely within the `ServerEventClient` instance.  All interactions from the application are with the `ServerEventClient` instance.
+ The `EventSource` object is created, retained, and
+destroyed entirely within the `ServerEventClient` instance.  All interactions from the application are with the `ServerEventClient` instance (never with the `EventSource` object.)
 
 Note also that the `ServerEventClient` instance is created via the `ServerEventClientFactory.create()` function.  The reason for this is that during the creation process, several async calls must be invoked with the server, and waiting for them within a constructor is not good practice, nor are errors detected and conveyed in a constructor easily.
 

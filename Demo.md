@@ -5,7 +5,7 @@ nav_order: 40
 ---
 # Demo
 
-Demonstratess per-user (browser) server-event action using the following
+Demonstrates per-user (browser) server-event action using the following
 packages.  Please refer to the following:
 
 - [@aphorica/server-event-client](server-event-client.html) - a
@@ -18,7 +18,8 @@ packages.  Please refer to the following:
 ## Caveats
 - _IN PROGRESS - STILL DEVELOPING!_.  The behavior described here
   is what _should_ be happening.  If not, well, I'm working on it.
-- (pull requests welcome.)
+- (pull requests welcome, but we need to tightly coordinate any
+  merges.)
 - Read the document pages in this guide for each of the modules for more    detailed information on their use/implementation.
 - Currently developing almost exclusively in _Chrome_, but have
   run it cursorily in _Firefox_.  Need to test in more browsers.
@@ -45,14 +46,14 @@ under _alpine_.  It will install and run _nodemon_ at port 9229, so you can conn
 Since it is a development environment, you need to do the following
 steps to get it up and running:
 
-1. clone this repository.
-2. cd into the ./site directory of your clone.
-3. execute `npm install` or `yarn install` from the command line.
-4. execute `npm serve` or `yarn serve` from the command line.
+1. Clone this repository (presumably done.)
+2. CD into the ./site directory of your clone.
+3. Invoke `npm install` or `yarn install` from the command line.
+4. Invoke `npm serve` or `yarn serve` from the command line.
 4. Open another commandline window and cd to the demo root.
-5. execute `docker-compose up` from the command line.
-6. open a browser, type in a name and hit the _Submit!_ button.
-7. the page will wait a few seconds and then you will see the
+5. Invoke `docker-compose up` from the command line.
+6. Open a browser, type in a name and hit the _Submit!_ button.
+7. The page will wait a few seconds and then you will see the
    response update.  Note your id and timestamp will be reflected
    in the _Registrants_ window.
 8. You can, for instance hit the _Trigger Server Response_ button,
@@ -69,7 +70,7 @@ steps to get it up and running:
     _State_ entry will show "Closed".
 
 ## Development
-Because this is a client/server app, each referencing it's own npm-module, the development environment is a bit complex.  Here is how I manage it:
+Because this is a client/server app, each side referencing it's own npm-module, the development environment is a bit complex.  Here is how I manage it:
 
 ### Demo Application
 Open an IDE in each of the directories _./site_ and _./app.  This will
@@ -78,8 +79,7 @@ make the application source available in the IDE.
 - On the client side _(./site)_, this will be a _vuejs_ application.
 - On the server side _(./app)_, this will be a _node express_ application.
 
-Both are hot-served - if you make a change to the source in either
-directory, they will update.  Unfortunately, this does not apply if you are changing source in either of the other modules.  See next.
+Both are hot-served (not the server under Windows, I have discovered) - if you make a change to the source in either directory, they will update.  Unfortunately, this does not apply if you are changing source in either of the other modules.  See next.
 
 ### Modules
 Clone each of the modules locally in separate directories.  You can either use the 'npm-link', 'yarn-link' or 'yalc' facilities to make them available in the _./site_ and _./app_ folders.
