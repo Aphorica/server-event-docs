@@ -42,7 +42,7 @@ There are a couple of pre-requisites to setting up the environment:
 - An IDE is useful - I'm using _vscode_ ( https:visualstudio.com ).
 
 The `docker-compose up` command will build an _NGINX_ server environment
-under _alpine_.  It will install and run _nodemon_ at port 9229, so you can connect to a debugger (under _vscode,_ anyway.)
+under _alpine_.  It will install and run _nodemon_ at port 9229, so you can connect to a debugger (under _vscode,_ anyway.)  It also exposes port 3000 so you can curl directly to the server, if there is a need.
 
 Since it is a development environment, you need to do the following
 steps to get it up and running:
@@ -65,15 +65,14 @@ Next:
     "listen" registration.
   - The _Submit_ button will be enabled.
 - Hitting the _Submit_ button will submit a "task" registration 
-   (timeout_test) - it will wait a few seconds and then signal completion.
-   - When the task has been submitted, the _Trigger Server Response_ button and others will be enabled.
+   _(timeout_test)_ - it will wait five seconds and then signal completion.
+   - When the task has been submitted, the _Trigger AdHoc Task Server Response_ button and others will be enabled.
    - Note your id and registration timestamp will be reflected in the _Registrants_ window.
-- You can, hit the _Trigger Server Response_ button,
-   which will force the server to initiate an immediate _ad hoc_
+- You can, hit the _Trigger AdHoc Task Server Response_ button,
+   which will force the task server to initiate an immediate _ad hoc_
    response (reflected by count in the _Response_ header.)
 - Open more browsers and enter a different name in each, then hit
-   the _Submit!_ and _Trigger Server Response_ buttons to see each
-   client receives its own response.
+   the _Submit!_ and _Trigger AdHoc Task Server Response_ buttons to see each client receives its own response.
 - Open another browser (or more) and enter the same name as one
     of the other browsers.  Note that the responses are reflected
     for all clients registered in the same name.
@@ -82,7 +81,7 @@ Next:
     has been removed and the _State_ entry will show "Closed".
 
 ## Development
-Because this is a client/server app, each side referencing it's own npm-module, the development environment is a bit complex.  Here is how I manage it:
+Because this is a client/server app, with each side referencing it's own npm-module, the development environment is a bit complex.  Here is how I manage it:
 
 ### Demo Application
 Open an IDE in each of the directories _./site_ and _./app.  This will
@@ -99,7 +98,7 @@ Clone each of the modules locally in separate directories.  You can either use t
 I personally like 'yalc', since the '*-link' facilities can be a bit flaky.
 
 - Install yalc:
- - `npm install -g yalc`
+ - `npm install -g yalc` _or_
  - `yarn global add yalc`
 
 - cd into each of the module directories and type `yalc publish`.
@@ -108,12 +107,16 @@ I personally like 'yalc', since the '*-link' facilities can be a bit flaky.
 - cd into the demo _./app_ directory and type `yalc add @aph/server-event-mgr`
 - restart the container from the demo root directory (`docker-compose down` and `docker-compose up`)
 
-If you change source in either of the modules, you need to type `yalc update` in the module directory and then restart the applicable server, same as above.
+If you change source in either of the modules, you need to type `yalc push` in the module directory and then restart the applicable server, same as above.
 
 If using _yalc_, when you're ready to commit, you need to clean the _yalc_ cruft out of any changed directories.  In each module directory, type `yalc remove`.
 
 ### Notes
-It can be a bit difficult keeping everything straight.  I open an IDE in each of the _./site_ and _./app_ directories, as well as each of the module directories, with a terminal window in each, as well as a terminal window in the root demo directory.
+It can be a bit difficult keeping everything straight.  I open an IDE in each of the _./site_ and _./app_ directories, and a terminal window in each of the module directories, as well as a terminal window in the root demo directory.
+
+Rather than open in IDE in the module directories, I just open the file I want to see in the relevent IDE - for instance, if I want to see the `index.js` file for the `server-event-client` module, I just open it in the IDE pointing to the _./site_ directory, since that's for what it applies.
+
+Note that regardless of where you change a module file, you need to run `yalc push` in the module directory to get it re-submitted to the demo dir.  If in the app server, you need to kill the server, and then run `docker-compose up` for changes to take effect.
 
 A large monitor/multiple monitors helps.
 

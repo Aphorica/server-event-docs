@@ -23,24 +23,23 @@ On the client side, the client registers a callback object to receive various no
 
 ## Two Types of Listen Requests
 The client can request one or more instances of listen requests:
-<dl>
-<dt>Long-termed (LT)</dt>
-<dd>
+
+<em>Long-termed (LT)</em>
+<blockquote>
 These are requests that are globally sent to all listeners of the specified name.  Things like timed loops, listeners-changed, etc
 are messages that can be sent by the server at any time.
 
 The connection is typically held open for the duration of the app
 session.
-</dd>
-<dt>Task</dt>
-<dd>
+</blockquote>
+<em>Task</em>
+<blockquote>
 A task is defined on the server that may take a long time to complete -
 longe than the http-request timeout. The request is made to the server to initiate the task and then the client continues (not unlike normal asynchronous requests, except they may take longer to complete - like
 minutes, hours or days.)
 
 When the task is complete, the server notifies the client it is complete by id, and the client can handle it.
-</dd>
-</dl>
+</blockquote>
 
 To handle the id and connections on the client side, the client instantiates a 'server-event-client' object, which in turn does the following:
 - requests a unique id from the server

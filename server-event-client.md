@@ -82,9 +82,6 @@ Called when the specific task is completed.</blockquote>
 <em>id</em> - the unique id for this client<br/>
 Called when the server registers the id.
 </blockquote>
-<code>sseAdHocResponse()</code>
-<blockquote>
-Called when the server sends an ad-hoc notification.</blockquote>
 </blockquote>
 </blockquote>
 <h3>Operations API</h3>
@@ -112,10 +109,7 @@ Disconnect the <em>EventSource</em> object from the server. This will remove the
 <code>fetchRegistrants()</code>
 <blockquote>
 Fetch all the currently registered entries held by the server.  Returned as a JSON object.</blockquote>
-<code>triggerAdHocServerResponse()</code>
-<blockquote>
-Invokes call to force the server to trigger an immediate reponse.</blockquote>
 <code>triggerCleanup()</code>
 <blockquote>
-Invokes call to force the server to do an immediate cleanup pass.</blockquote>
+Invokes a call to force the server to do an immediate cleanup pass.</blockquote>
 </blockquote>

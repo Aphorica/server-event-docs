@@ -108,7 +108,6 @@ manager calls.  See the _ServerEventManager_ API for operational details.
 ### Debugging 
  - `(pfx)/list-registrants` => `getListenersJSON()`
  - `(pfx)/clear-registrants` => `unregisterAllListeners()`
- - `(pfx)/trigger-adhoc/:id` => `triggerAdHocResponse(id)`
  - `(pfx)/trigger-cleanup` => `triggerCleanup()`
 
 ## Manager API
@@ -186,11 +185,6 @@ turns off the cleanupInterval mechanism.</blockquote>
 <code>notifyListenersChanged() - (experimental)</code>
 <blockquote>
 Will send change notification to all listeners.</blockquote>
-<code>triggerAdHocResponse(id)</code>
-<blockquote>
-<em>id</em> - the unique id for this listener<br/><br/>
-Forces the server to send a notification.</blockquote>
-<blockquote>
 <code>triggerCleanup()</code>
 <blockquote>
 Forces an immediate invocation of the cleanup mechanism.</blockquote>
