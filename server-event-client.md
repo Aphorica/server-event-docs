@@ -25,6 +25,17 @@ It also provides debugging invocations into the server to aid in development.
  - (pull requests welcome, but we need to tightly coordinate any
    merges.)
 
+## Implementation Notes
+### _eventsource_ polyfill
+I've decided to bundle the _eventsource_ polyfill with the client
+mainly because I've figured out how to make this implementation work
+ (as opposed to others), especially in a CORS scenario.
+
+If the browser doesn't supply its own `EventSource` module
+(_MS Edge_, _MS IE_, primarily), the polyfill will provide one.
+
+Otherwise, the package will use the browser version.
+
 ## API
  The `EventSource` object is created, retained, and
 destroyed entirely within the `ServerEventClient` instance.  All interactions from the application are with the `ServerEventClient` instance (never with the `EventSource` object.)

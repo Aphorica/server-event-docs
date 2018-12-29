@@ -38,16 +38,6 @@ Implements a server-event service in node express.
    re-register) will resume any currently registered tasks.
 
 ## Implementation Notes:
-### _eventsource_ polyfill
-I've decided to bundle the _eventsource_ polyfill with the client
-mainly because I've figured out how to make this implementation work
- (as opposed to others), especially in a CORS scenario.
-
-If the browser doesn't supply its own `EventSource` module
-(_MS Edge_, _MS IE_, primarily), the polyfill will provide one.
-
-Otherwise, the package will use the browser version.
-
 ### Instantiated Router
 The manager creates a router via the `createRouter()` function,
 which returns a router.  The router needs to be added
