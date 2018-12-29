@@ -38,23 +38,34 @@ Implements a server-event service in node express.
    re-register) will resume any currently registered tasks.
 
 ## Implementation Notes:
+### _eventsource_ polyfill
+I've decided to bundle the _eventsource_ polyfill with the client
+mainly because I've figured out how to make this implementation work
+ (as opposed to others), especially in a CORS scenario.
+
+If the browser doesn't supply its own `EventSource` module
+(_MS Edge_, _MS IE_, primarily), the polyfill will provide one.
+
+Otherwise, the package will use the browser version.
+
 ### Instantiated Router
 The manager creates a router via the `createRouter()` function,
-which returns the router.  The router needs to be added
+which returns a router.  The router needs to be added
 to the _Express_ app:
 ```
 const ServerEventMgr = require('@aph/server-event-mgr');
 app.use(ServerEventMgr.createRouter());
 ```
-If you provide your own rest handlers, you do not need to
-create the router (untested).
+Note you don't have to do this if you provide your own rest handlers (untested).
 ### Express Global Request Handlers
 A typical _Express_ app will have a global request handler to
 set things like response headers, especially CORS headers.
 
-SSE responses require their own headers.  If you have implemented
+Except for an _OPTIONS_ preflight request, SSE responses require their own headers.
+If you have implemented
 a global request handler to provide headers, you must qualify the
-request to not send headers when the rest path includes
+request to not send headers (with the exception of an _OPTIONS_ preflight
+request) when the rest path includes
 `/register-listener/`.
 
 An example from the test/demo package follow (I use semi-colons):
@@ -63,7 +74,7 @@ An example from the test/demo package follow (I use semi-colons):
 var allowCrossDomain = function(req, res, next) {
   console.log('allowXDomain: ' + req.method +
   ' ' + req.path);
-  if (req.path.indexOf('/register-listener/') === -1) {
+  if (req.method === 'OPTIONS' || req.path.indexOf('/register-listener/') === -1) {
             // do NOT do following if registering listener
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
