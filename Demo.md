@@ -112,6 +112,8 @@ If you change source in either of the modules, you need to type `yalc push` in t
 If using _yalc_, when you're ready to commit, you need to clean the _yalc_ cruft out of any changed directories.  In each module directory, type `yalc remove`.
 
 ### Notes
+Just some thoughts I've picked up while doing this.
+#### IDE/Terminals
 It can be a bit difficult keeping everything straight.  I open an IDE in each of the _./site_ and _./app_ directories, and a terminal window in each of the module directories, as well as a terminal window in the root demo directory.
 
 Rather than open in IDE in the module directories, I just open the file I want to see in the relevent IDE - for instance, if I want to see the `index.js` file for the `server-event-client` module, I just open it in the IDE pointing to the _./site_ directory, since that's for what it applies.
@@ -119,5 +121,15 @@ Rather than open in IDE in the module directories, I just open the file I want t
 Note that regardless of where you change a module file, you need to run `yalc push` in the module directory to get it re-submitted to the demo dir.  If in the app server, you need to kill the server, and then run `docker-compose up` for changes to take effect.
 
 A large monitor/multiple monitors helps.
+#### Polyfills for IE
+The demo should work in IE.  Because it's a _Vuejs_ app, it uses a number of features
+that IE does not support, like IE6 and promises.  Fortunately, there are polyfills
+available:
+- babel-regenerator-runtime
+- promise-polyfill
+These are installed via `yarn`.  The _promise-polyfill_ package has to be expressly
+imported in the app.  Look at _src/main.js_ for more information.
+
+Note you don't need these to use the modules - they're just for the demo to work.
 
 
